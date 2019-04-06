@@ -41,3 +41,9 @@ public class SavingsAccount extends Account {
     public void deposit (double amount) {
         // Stub
     }
+
+    @Override
+    public void withdraw(double amount) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
