@@ -52,7 +52,9 @@ public class TestBankClass {
     public boolean getCustomerListTest(String lastName, String firstName){
         boolean gotAllCustomers = false;
         SortedSet<Customer> customerSet = Bank.getAllCustomers();
-       
+        
+        // commented out as it would need persistant data
+       /*
         while (customerSet.iterator().hasNext())
         {
             SortedSet<String> displayCustomer = new TreeSet<>();
@@ -65,8 +67,8 @@ public class TestBankClass {
                 gotAllCustomers = true;
             }
         }
-        
-        
+        */
+                
         return gotAllCustomers;
     }
 }
