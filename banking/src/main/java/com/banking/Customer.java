@@ -69,7 +69,7 @@ public class Customer implements Comparable<Customer> {
      * @return an immutable SortedSet of accounts (check for
      *  immutability of accounts; use a List?)
      */
-    public SortedSet<Account> getCustomerAccounts () {
+    public static SortedSet<Account> getCustomerAccounts () {
         return null;  // Stub
     }
 

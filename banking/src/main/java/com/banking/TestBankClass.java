@@ -50,27 +50,71 @@ public class TestBankClass {
     }
     
     public boolean getCustomerListTest(String lastName, String firstName){
-        boolean gotAllCustomers = false;
+        boolean gotAllAccounts = false;
         SortedSet<Customer> customerSet = Bank.getAllCustomers();
         
         // commented out as it would need persistant data
        /*
         while (customerSet.iterator().hasNext())
         {
-            SortedSet<String> displayCustomer = new TreeSet<>();
+            SortedSet<String> displayCustomerAccounts = new TreeSet<>();
             if (customerSet.lastName.equals(lastName) && 
                     customerSet.firstName.equals(firstName) ) 
             {
-                displayCustomer.add(customerSet.iterator().toString());
+                displayCustomerAccounts.add(customerSet.iterator().toString());
             }
-            if (displayCustomer.iterator() != null) {
-                gotAllCustomers = true;
+            if (displayCustomerAccounts.iterator() != null) {
+                gotAllAccounts = true;
             }
         }
         */
                 
-        return gotAllCustomers;
+        return gotAllAccounts;
     }
+    
+    public boolean getAllCustomersTest(){
+       boolean allCustomersInSet = true;
+       int numOfCustomers = 0;  //number of customers to be input here.
+       if (Bank.getAllCustomers().size() != numOfCustomers){
+           allCustomersInSet = false;
+       }
+       
+       return allCustomersInSet;
+    }
+    
+    /** Remove customer from getAllCustomer Sorted Set.
+     * return true if able to remove.
+     * @param cust
+     * @return 
+     */
+    public boolean removeCustomer(Customer cust){
+        
+        boolean customerRemoved = Bank.getAllCustomers().remove(cust);
+        
+        return customerRemoved;
+    }
+    
+    /** iterate through all customers then add all accounts for each
+     *   customer to a SortedSet.  Test to see if SortedSet contains
+     *   same number of elements as the total number of accounts. 
+     */
+    public boolean getAllAccounts() {
+        boolean allAccountsAccountedFor = false;
+        int totalNumOfAccounts = 0; //erroneous for now
+        SortedSet allAccounts = new TreeSet<>();
+        while (Bank.getAllCustomers().iterator().hasNext()){
+            allAccounts.addAll(Customer.getCustomerAccounts());
+           // Bank.getAllCustomers().hashCode();
+           // allAccounts = Bank.getAllCustomers().forEach(Customer.getCustomerAccounts());
+           // allAccounts.addAll(Customer.getCustomerAccounts());         
+        }
+        
+        if (allAccounts.size() == totalNumOfAccounts){
+            allAccountsAccountedFor = true;
+        }
+        
+        return allAccountsAccountedFor;
+    } 
 }
 
     
