@@ -175,6 +175,7 @@ public class TestBankClass {
      *   customer to a SortedSet.  Test to see if SortedSet contains
      *   same number of elements as the total number of accounts the bank
      *   has on file.
+     *   @return
      */
     public boolean getAllAccounts() {
         boolean allAccountsAccountedFor = false;
