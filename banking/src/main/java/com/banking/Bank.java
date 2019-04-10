@@ -37,7 +37,7 @@ public class Bank {
     /**
      * @return the insufficientFundsPenalty
      */
-    public  double getInsufficientFundsPenalty () {
+    public double getInsufficientFundsPenalty () {
         return insufficientFundsPenalty;
     }
 
@@ -83,7 +83,7 @@ public class Bank {
      * @param firstName Customer's first (or given) name
      * @return the customer's ID
      */
-    public static String addCustomer (String lastName, String firstName) {
+    public String addCustomer (String lastName, String firstName) {
         return null;  // Stub
     }
 
@@ -98,7 +98,7 @@ public class Bank {
     /** Generates a report of all current customers, in customer ID order
      * @return SortedSet of all customers at this bank.
      */
-    public static SortedSet<Customer> getAllCustomers () {
+    public SortedSet<Customer> getAllCustomers () {
         return null;  // Stub
     }
 
