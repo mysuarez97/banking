@@ -46,39 +46,39 @@ public class SavingsAccount extends Account {
      * @param description An account description provided by the owner
      * @param interestRate  Account's default monthly interest rate
      */
-
+                            //Given
     public SavingsAccount (Customer cust, double initialBalance,
             String description, double interestRate) {
         super(cust, initialBalance, description);
-        // Stub
+        //When
         System.out.println(getAccountId());
         System.out.println(getBalance());
         System.out.println(getAccountDescription());
+        //Then
+        return getAccountId;
+        return getBalance;
+        return getAccountDescription;
     }
 
-    @Override @Test
+    @Override @Test       //Given
     public void deposit (double amount) {
-        // Stub
         DepostWindow= new JFrame("Deposit");
         DepostWindow.setVisible(true); DepostWindow.setSize(500,600);DepostWindow.setLayout(null);
         //Deposit Label
         depositText= new JLabel("Enter the amount, you want to deposit.");
         depositText.setVisible(true);depositText.setBounds(200,200,100,50);DepostWindow.add(depositText);
         //TextField
+        //When
         depositField = new JTextField(15);
         depositField.setVisible(true);depositField.setBounds(300,300,200,60); DepostWindow.add(depositField);
-
+        //Then
          amount =  depositField.getColumns();
 
-
-        if(amount <= 0){
-            System.out.println("You must deposit an amount greater than 0.");
-        } else {
-            System.out.println("You have deposited " + (amount));
-        }
+        //Then
+        return amount;
     }
 
-    @Override @Test
+    @Override @Test         //Given
     public void withdraw(double amount) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
@@ -90,14 +90,10 @@ public class SavingsAccount extends Account {
         //TextField
         withdrawField = new JTextField(15);
         withdrawField.setVisible(true);withdrawField.setBounds(300,300,200,60); withdrawWindow.add(withdrawField);
-
+        //When
         amount =  depositField.getColumns();
+        //Then
+        return amount;
 
-        if(amount <= 0) {
-            System.out.println("You must withdraw an amount greater than 0.");
-        } else {
-            System.out.println("You have deposited " + (amount));
-
-        }
     }
 }

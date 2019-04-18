@@ -58,9 +58,13 @@ public class Customer implements Comparable<Customer> {
     @Test
     public Bank getBank ()
     {
-
+        //Given
+        bank();
+        //When
+        getBank().bank();
+        //Then
         return bank;
-        // Stub
+
     }
 
     /** Getter for customer's ID
@@ -72,18 +76,13 @@ public class Customer implements Comparable<Customer> {
         customerWindow = new JFrame("CustomerEntry");
         customerWindow.setSize(600,700); customerWindow.setVisible(true); customerWindow.setLayout(null);
         customerIDText = new JLabel("Customer ID:");
+        //Given
         CustomerID.setVisible(true); CustomerID.setBounds(150,300,100,50); customerWindow.add(CustomerID);
+        //When
         JTextField IDNumField = new JTextField();
         IDNumField.setVisible(true); IDNumField.setBounds(300,300,200,100); IDNumField.add(CustomerID);
-
-        if (IDNumField.isValid() ) {
-            int value = getIDNumField();
-            CustomerID.setText(Integer.toString(value));
-
-        }
-
-
-        return IDNumField;  // Stub
+        //Then
+        return IDNumField;
     }
 
     /** Getter for the customer's last name
@@ -91,14 +90,14 @@ public class Customer implements Comparable<Customer> {
      */
     @Test
     public String getLastName () {
-        //Label
+        //Given
         lastNameText = new JLabel("Last Name:");
         lastNameText.setVisible(true);lastNameText.setBounds(150,400,100,50);customerWindow.add(lastNameText);
-        //Textfield
         LastName = new JTextField(15); LastName.setVisible(true); LastName.setBounds(300,400,200,100);
+        //When
         customerWindow.add(LastName);
-
-        return LastName;  // Stub
+        //Then
+        return LastName;
     }
 
     /** Getter for the customer's first name
@@ -106,13 +105,14 @@ public class Customer implements Comparable<Customer> {
      */
     @Test
     public String getFirstName () {
-        //Label
+        //Given
         firstNameText = new JLabel("First Name:");
         firstNameText.setVisible(true);firstNameText.setBounds(150,450,100,50); customerWindow.add(firstNameText);
-        //TextField
+        //When
         FirstName = new JTextField(15);FirstName.setBounds(450,300,200,100); FirstName.setVisible(true);
         customerWindow.add(FirstName);
-        return FirstName;  // Stub
+        //Then
+        return FirstName;
     }
 
     /** Returns a read-only SortedSet of the customer's active
@@ -123,13 +123,15 @@ public class Customer implements Comparable<Customer> {
      */
     @Test
     public static SortedSet<Account> getCustomerAccounts () {
-        List<Element> customerAccounts = new ArrayList<>();
+
+        //Given
+        List<Element> getCustomerAccounts = new ArrayList<>();
 
         //Add the customer accounts to the list
-        for(int i =0; i < customerAccounts; i++) {
-            customerAccounts.add(IDNumField);
-        }
-        return customerAccounts;  // Stub
+
+            getCustomerAccounts.add(IDNumField);
+
+        return getCustomerAccounts();
     }
 
     /** Returns the total fees (including penalties) paid by this customer
@@ -137,21 +139,25 @@ public class Customer implements Comparable<Customer> {
      *
      * @return YTD fees paid
      */
-    @Test
+    @Test                   //Given
     public double ytdFees ( double InterPayment,
             double faceValue,
             double Price,
             double Maturity) {
+        //When
         double yieldFees = (InterPayment + (faceValue-Price))/ ((faceValue+Price)/2);
-        return yieldFees;  // Stub
+        //Then
+        return yieldFees;
     }
 
     /** Returns the total interest paid to this customer for year-to-date
      * @return YTD interest payed
      */
-    @Test
+    @Test                       //Given
     public double ytdInterest (double annualRate, double numOfComp) {
+        //When
         double yieldInterest = pow((1+(annualRate/numOfComp)),numOfComp)-1;
+        //Then
         return yieldInterest;  // Stub
     }
 
@@ -164,10 +170,12 @@ public class Customer implements Comparable<Customer> {
     public SavingsAccount addSavingsAccount (double initBal,  String[] desc) {
         addAccount = new JFrame("Create Savings Account");
         addAccount.setVisible(true);addAccount.setSize(600,700);addAccount.setLayout(null);
+        //Given
         //Balance Label
         JLabel Balance = new JLabel("Enter Balance");
         Balance.setVisible(true); Balance.setBounds(200,300,100,50); addAccount.add(Balance);
         //Balance TextField
+        //When
         JTextField balanceField = new JTextField(15);
         balanceField.setVisible(true);balanceField.setBounds(300,300,200,60); addAccount.add(balanceField);
         initBal= Double.parseDouble(balanceField.getText());
@@ -180,11 +188,8 @@ public class Customer implements Comparable<Customer> {
         JComboBox descComboBox = new JComboBox(descr);
         descComboBox.setSelectedIndex(4);
         descComboBox.setVisible(true); descComboBox.setBounds(200,500,200,100); addAccount.add(descComboBox);
-
-
-
-
-        return addSavingsAccount(initBal,desc);  // Stub
+        //Then
+        return descComboBox;
     }
 
     /** Deletes a given account (in the real world, just marks it as defunct
@@ -194,16 +199,12 @@ public class Customer implements Comparable<Customer> {
     @Test
     public void removeAccount (String accountId) {
 
-        accountId[CustomerID - 1] = null;
-        if (accountId != null)
-        {
-            System.out.println("Account " + accountId.getAccountId() + " has been closed with balance: " + accountId.getBalance());
-        }
-        else
-        {
-            //user input for account nr from array
-            System.out.println("Account does not exist.");
-        }
+        //given
+        String removeAccount;
+        //When
+        accountId==removeAccount;
+        //then
+        return accountId;
     }
 
     /** Find an account given an account ID
@@ -218,43 +219,53 @@ public class Customer implements Comparable<Customer> {
         //account ID text
         JLabel accountIDText = new JLabel("Account ID Number:");
         accountIDText.setVisible(true);accountIDText.setBounds(200,200,100,50);signInWindow.add(accountIDText);
+        //Given
         //account Textfield
         JTextField accountField = new JTextField(15);
         accountField.setVisible(true);accountField.setBounds(300,300,200,60); signInWindow.add(accountField);
+        //When
         accountId= accountId.parseInteger(accountField.getText());
         //sign in button
         JButton signIn = new JButton("Sign In");
         signIn.setVisible(true); signIn.setBounds(250,400,50,50);signInWindow.add(signIn);
-
-        return getAccount(accountId);  // Stub
+        //then
+        return getAccount(accountId);
     }
 
     @Override @Test
     public String toString () {
-        return "";  // Stub
+        return "";
     }
 
     @Override @Test
     public int hashCode () {
+        //Given
         int hash;
+        //When
         hash += CustomerID;
-        return hash;  // Stub
+        //Then
+        return hash;
     }
 
     @Override @Test
     public boolean equals (Object obj) {
 
-
-        return false;  // Stub
+        //Given
+        int AccountID;
+        //When
+        AccountID == obj;
+        //return
+        return false;
     }
 
     @Override @Test
     public int compareTo (Customer other) {
-        if(other == CustomerID)
-        {
-            alreadyTaken= new JLabel("account ID number is already taken");
-        }
+        //Given
+        other.equals(CustomerID);
+        //When
+        alreadyTaken= new JLabel("account ID number is already taken");
         alreadyTaken.setVisible(true);alreadyTaken.setBounds(400,500,100,100);signInWindow.add(alreadyTaken);
-        return alreadyTaken;  // Stub
+        //then
+        return alreadyTaken;
     }
 }
